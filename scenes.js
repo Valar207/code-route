@@ -319,6 +319,7 @@
     return `<rect width="640" height="400" fill="${c[0]}"/><g opacity=".12" fill="#fff">${[...Array(10)].map((_, i) => `<circle cx="${(i * 97) % 640}" cy="${(i * 57) % 400}" r="${40 + (i % 3) * 30}"/>`).join('')}</g>${c[1]()}`;
   }
 
+  let uid = 0;
   function render(spec) {
     let body;
     if (!spec) body = card('L');
@@ -327,6 +328,8 @@
     else if (spec.top) body = top(spec.top);
     else if (spec.dash) body = dash(spec.dash);
     else body = card(spec.card);
+    const u = ++uid;
+    body = body.replace(/id="(sk|dg)"/g, `id="$1${u}"`).replace(/url\(#(sk|dg)\)/g, `url(#$1${u})`);
     return `<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${body}</svg>`;
   }
 

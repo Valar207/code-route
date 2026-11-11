@@ -45,7 +45,7 @@ h1,h2,h3{font-family:var(--f-d);letter-spacing:-.025em;line-height:1.08;margin:0
 .nav a[aria-current="page"]{background:#fff;color:var(--navy)}
 .tbtn svg{width:20px;height:20px}
 .tbtn[aria-pressed="false"] .on,.tbtn[aria-pressed="true"] .off{display:none}
-@media (max-width:640px){.nav a span{display:none}.nav a{padding:0 11px}.brand{font-size:19px}.top .wrap{gap:4px}.tbtn b{display:none}}
+@media (max-width:720px){.nav a span{display:none}.nav{gap:0}.nav a,.tbtn{padding:0 9px;min-width:40px;justify-content:center}.brand svg{width:26px;height:26px}.brand{font-size:19px}.top .wrap{gap:4px}.tbtn b{display:none}}
 .nav a svg{width:20px;height:20px}
 
 main{display:block;padding-bottom:60px}
@@ -231,6 +231,53 @@ footer a{color:inherit}
   .eact .btn{min-height:50px}
   body.quiz footer{display:none}
 }
+/* Cours */
+.lcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.lcard{display:flex;flex-direction:column;gap:6px;background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:16px 18px;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
+.lcard:hover{border-color:var(--blue);transform:translateY(-2px)}
+.lcard .k{font-size:13px;font-weight:700;color:var(--muted);display:flex;justify-content:space-between;gap:8px}
+.lcard .k i{font-style:normal;color:var(--green)}
+.lcard strong{font:700 18px/1.2 var(--f-d);letter-spacing:-.015em}
+.lcard p{margin:0;font-size:14.5px;color:var(--ink-2)}
+.lesson{padding:26px 0 10px}
+.lesson .wrap{max-width:820px}
+.crumb{font-size:14px;color:var(--muted);margin:0 0 8px}
+.crumb a{color:inherit}
+.lesson h1{font-size:clamp(30px,4.4vw,46px);margin-bottom:10px}
+.lesson .lead{font-size:18px;color:var(--ink-2);margin:0 0 16px}
+.lesson .acts{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.toc{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 6px;padding:0;list-style:none}
+.toc button{min-height:36px;padding:0 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);font-size:14px;cursor:pointer}
+.lesson section{padding-top:22px;scroll-margin-top:80px}
+.lesson h2{font-size:24px;margin-bottom:10px}
+.lesson section>p{margin:0 0 12px;color:var(--ink-2)}
+.lesson ul.pts{margin:0 0 14px;padding-left:22px;display:grid;gap:6px;color:var(--ink-2)}
+.lesson ul.pts b,.lesson section>p b{color:var(--ink)}
+.ltable{width:100%;border-collapse:collapse;margin:0 0 14px;font-size:15px;background:var(--card);border-radius:12px;overflow:hidden;border:1.5px solid var(--line)}
+.ltable th,.ltable td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.ltable th{background:var(--paper);font-weight:700;font-size:14px}
+.ltable tr:last-child td{border-bottom:0}
+.tscroll{overflow-x:auto;margin:0 0 14px}.tscroll .ltable{margin:0}
+.signs{display:grid;grid-template-columns:repeat(auto-fill,minmax(122px,1fr));gap:10px;margin:0 0 14px}
+.signs figure{margin:0;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:10px 8px;text-align:center}
+.signs svg{width:76px;height:76px;display:block;margin:0 auto 6px}
+.signs figcaption{font-size:13px;line-height:1.3;color:var(--ink-2)}
+.voys figure{background:#0d1118;border-color:#26303f}
+.voys figcaption{color:#c9d2e3}
+.lfig{margin:0 0 14px}
+.lfig .scene{box-shadow:none;border-radius:14px}
+.lfig figcaption{font-size:14px;color:var(--muted);margin-top:6px}
+.tip{margin:0 0 14px;padding:12px 16px;border-radius:14px;background:var(--blue-2);border-left:5px solid var(--blue)}
+.tip b{display:block;font-family:var(--f-d);margin-bottom:2px}
+.tip p{margin:0;color:var(--ink-2)}
+.retenir{margin-top:26px;padding:18px 20px;border-radius:18px;background:var(--navy);color:#fff}
+.retenir h2{color:var(--yel);font-size:22px}
+.retenir ul{margin:8px 0 0;padding-left:20px;display:grid;gap:6px;color:#DDE3EE}
+.lnav{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;margin-top:22px}
+.expl .why{margin-top:6px}
+.expl ul{margin:6px 0;padding-left:20px;color:var(--ink-2)}
+.expl a{display:inline-block;margin-top:8px;font-weight:700;color:var(--blue)}
+
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
@@ -240,7 +287,8 @@ footer a{color:inherit}
   <a class="brand" href="#accueil" aria-label="Code Route, accueil"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 6 L95 86 Q97 92 90 92 H10 Q3 92 5 86 Z" fill="#D52B1E"/><path d="M50 28 L76 78 H24 Z" fill="#fff"/><path d="M50 42 V64" stroke="#14181F" stroke-width="9" stroke-linecap="round"/><circle cx="50" cy="72" r="4.5" fill="#14181F"/></svg>Code<span>Route</span></a>
   <nav class="nav" aria-label="Navigation principale">
     <a href="#accueil" data-nav="accueil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 11 12 4l9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg><span>Accueil</span></a>
-    <a href="#entrainement" data-nav="entrainement"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M4 19V5M4 19h16M8 15l4-5 3 3 5-6"/></svg><span>S’entraîner</span></a>
+    <a href="#cours" data-nav="cours"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></svg><span>Cours</span></a>
+    <a href="#entrainement" data-nav="entrainement"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M9 9a3 3 0 1 1 4.2 2.8c-.8.4-1.2 1-1.2 1.9V15"/><circle cx="12" cy="12" r="9"/><circle cx="12" cy="18.2" r=".6" fill="currentColor"/></svg><span>Quiz</span></a>
     <a href="#historique" data-nav="historique"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg><span>Historique</span></a>
   </nav>
   <button class="tbtn" id="voice" type="button" aria-pressed="true" title="Lecture des questions à voix haute"><svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/></svg><svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 9l5 6M22 9l-5 6"/></svg><b>Voix</b><span class="sr-only">: lecture à voix haute</span></button>
@@ -256,7 +304,8 @@ footer a{color:inherit}
         <p class="lead">40 questions lues à voix haute, 20 secondes pour répondre, une ou plusieurs bonnes réponses. Il faut au moins 35 bonnes réponses pour réussir, comme le jour de l’examen.</p>
         <div class="row">
           <button class="btn pri big" type="button" data-act="exam"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg>Lancer un examen blanc</button>
-          <a class="btn sec big" href="#entrainement">S’entraîner par thème</a>
+          <a class="btn sec big" href="#cours">Lire les cours</a>
+          <a class="btn sec big" href="#entrainement">Quiz d’entraînement</a>
         </div>
         <div class="facts" id="facts"></div>
       </div>
@@ -270,15 +319,16 @@ footer a{color:inherit}
     </div></section>
 
     <section class="blk"><div class="wrap">
-      <h2>Les 10 thèmes de l’examen</h2>
-      <p class="sub">Touche un thème pour t’entraîner avec correction immédiate.</p>
-      <div class="themes" id="themes"></div>
+      <h2>Apprendre, s’entraîner, passer l’examen</h2>
+      <p class="sub">Commence par un cours, vérifie-le avec son quiz expliqué, puis passe un examen blanc.</p>
+      <div class="lcards" id="themes"></div>
     </div></section>
 
     <section class="blk"><div class="wrap">
       <h2>Comment se passe l’examen blanc</h2>
       <div class="how">
-        <div><p>Chaque question est lue à voix haute, avec ses réponses A, B, C et D. Tu peux répondre pendant la lecture.</p></div>
+        <div><p><b>Le quiz d’entraînement</b> n’est pas un examen : après chaque réponse, il t’explique pourquoi elle est juste ou fausse, et te renvoie au cours.</p></div>
+        <div><p>Dans l’examen blanc, chaque question est lue à voix haute, avec ses réponses A, B, C et D. Tu peux répondre pendant la lecture.</p></div>
         <div><p>Après la lecture, tu as 20 secondes. Coche une ou plusieurs réponses, puis valide. Sans validation, ta sélection est enregistrée à la fin du temps.</p></div>
         <div><p>Une question ne compte que si toutes les bonnes réponses sont cochées, et aucune mauvaise.</p></div>
         <div><p>À la fin : ta note sur 40, réussi à partir de 35, puis la correction de chaque erreur avec son explication.</p></div>
@@ -287,13 +337,21 @@ footer a{color:inherit}
     </div></section>
   </div>
 
+  <!-- Cours -->
+  <div data-page="cours" hidden>
+    <section class="blk"><div class="wrap" id="cours"></div></section>
+  </div>
+  <div data-page="lecon" hidden>
+    <article class="lesson"><div class="wrap" id="lecon"></div></article>
+  </div>
+
   <!-- Entraînement : réglages -->
   <div data-page="entrainement" hidden>
     <section class="blk"><div class="wrap">
-      <h1 style="font-size:clamp(30px,4vw,44px);margin-bottom:8px">S’entraîner</h1>
-      <p class="sub">La correction s’affiche après chaque question. Pas de chrono, sauf si tu l’actives.</p>
+      <h1 style="font-size:clamp(30px,4vw,44px);margin-bottom:8px">Quiz d’entraînement</h1>
+      <p class="sub">Ce n’est pas l’examen blanc : après chaque réponse, tu vois si elle est juste, pourquoi, et quelle était la bonne réponse. Pas de chrono, sauf si tu l’actives.</p>
       <div class="setup">
-        <div class="field"><h2 id="lab-th">Thème</h2><div class="chips" id="tr-th" role="group" aria-labelledby="lab-th"></div></div>
+        <div class="field"><h2 id="lab-th">Sujet</h2><div class="chips" id="tr-th" role="group" aria-labelledby="lab-th"></div></div>
         <div class="field"><h2 id="lab-n">Nombre de questions</h2><div class="chips" id="tr-n" role="group" aria-labelledby="lab-n"></div></div>
         <div class="field"><h2 id="lab-o">Options</h2><div class="chips" role="group" aria-labelledby="lab-o"><button class="chip" type="button" id="tr-timer" aria-pressed="false">Chrono de 20 secondes</button></div></div>
         <div><button class="btn pri big" type="button" data-act="train">Commencer</button></div>
@@ -344,6 +402,7 @@ footer a{color:inherit}
 
 <script src="scenes.js"></script>
 <script src="banque.js"></script>
+<script src="cours.js"></script>
 <script>
 (function () {
   'use strict';
@@ -395,22 +454,25 @@ footer a{color:inherit}
   vbtn.addEventListener('click', () => { pref.voice = !pref.voice; store.set('pref', pref); syncVoice(); if (!pref.voice) { hush(); if (S && S.reading) startClock(); } });
 
   /* ---------- Navigation ---------- */
-  const PAGES = ['accueil', 'entrainement', 'quiz', 'resultat', 'historique'];
+  const PAGES = ['accueil', 'cours', 'lecon', 'entrainement', 'quiz', 'resultat', 'historique'];
   function show(p) {
     document.querySelectorAll('[data-page]').forEach((el) => { el.hidden = el.dataset.page !== p; });
     document.body.classList.toggle('quiz', p === 'quiz');
-    document.querySelectorAll('[data-nav]').forEach((a) => { if (a.dataset.nav === p) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+    document.querySelectorAll('[data-nav]').forEach((a) => { if (a.dataset.nav === p || (p === 'lecon' && a.dataset.nav === 'cours')) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
     window.scrollTo(0, 0);
   }
   function route() {
-    const h = (location.hash || '#accueil').slice(1);
+    let h = (location.hash || '#accueil').slice(1);
+    hushRead();
     if (S && h !== 'quiz') { if (!S.over) { stopRun(); } }
+    if (h.startsWith('cours/')) { if (drawLesson(h.slice(6))) { show('lecon'); $('#main').focus({ preventScroll: true }); return; } h = 'cours'; }
     if (h === 'quiz' && !S) { location.replace('#accueil'); return; }
     if (h === 'resultat' && !lastRes) { location.replace('#historique'); return; }
     const p = PAGES.includes(h) ? h : 'accueil';
     if (p === 'accueil') drawHome();
     if (p === 'historique') drawHist();
     if (p === 'entrainement') drawSetup();
+    if (p === 'cours') drawCours();
     show(p);
     const m = $('#main'); if (document.activeElement && document.activeElement !== document.body) m.focus({ preventScroll: true });
   }
@@ -506,7 +568,22 @@ footer a{color:inherit}
     });
     const e = $('#expl');
     e.className = 'expl ' + (good ? 'ok' : 'ko');
-    e.innerHTML = `<strong>${good ? 'Bonne réponse' : S.ans[S.i].timeout ? 'Temps écoulé' : 'Pas tout à fait'}</strong><p>Réponse${q.ok.length > 1 ? 's' : ''} juste${q.ok.length > 1 ? 's' : ''} : ${q.ok.map((k) => LET[k]).join(', ')}. ${esc(q.ex)}</p>`;
+    const lab = (k) => `${LET[k]} (${esc(q.o[k])})`;
+    const wrong = sel.filter((k) => !q.ok.includes(k)), missed = q.ok.filter((k) => !S.sel.has(k));
+    const L = LES.get(q.id);
+    let h = `<strong>${good ? '✓ Bonne réponse' : S.ans[S.i].timeout ? '⏱ Temps écoulé' : '✗ Mauvaise réponse'}</strong>`;
+    if (good) h += `<p>Tu as coché ${q.ok.length > 1 ? 'toutes les bonnes réponses' : 'la bonne réponse'} : ${q.ok.map(lab).join(', ')}.</p>`;
+    else {
+      h += '<ul>';
+      if (!sel.length) h += '<li>Tu n’as coché aucune réponse.</li>';
+      if (wrong.length) h += `<li>${wrong.length > 1 ? 'Ces réponses sont fausses' : 'Cette réponse est fausse'} : ${wrong.map(lab).join(', ')}.</li>`;
+      if (missed.length && sel.some((k) => q.ok.includes(k))) h += `<li>Tu as oublié : ${missed.map(lab).join(', ')}.</li>`;
+      h += `<li>${q.ok.length > 1 ? 'Les bonnes réponses étaient' : 'La bonne réponse était'} : <b>${q.ok.map(lab).join(', ')}</b>.</li></ul>`;
+    }
+    h += `<p class="why"><b>Pourquoi :</b> ${esc(q.ex)}</p>`;
+    if (L) h += `<a href="#cours/${L.id}" target="_blank" rel="noopener">Revoir le cours « ${esc(L.titre)} » ↗</a>`;
+    e.innerHTML = h;
+    if (pref.voice) speak((good ? 'Bonne réponse. ' : `Mauvaise réponse. ${q.ok.length > 1 ? 'Les bonnes réponses étaient' : 'La bonne réponse était'} ${q.ok.map((k) => LET[k]).join(' et ')}. `) + q.ex);
     e.hidden = false;
     $('#clear').hidden = true;
     $('#validate').textContent = S.i + 1 < S.list.length ? 'Question suivante' : 'Voir mon résultat';
@@ -586,21 +663,75 @@ footer a{color:inherit}
       $('#prog-sub').textContent = pass ? `Tu as réussi ${pass} examen${pass > 1 ? 's' : ''} blanc${pass > 1 ? 's' : ''} sur ${ex.length}.` : `Pas encore d’examen réussi sur ${ex.length}. Vise ${PASS}/40.`;
       $('#stats').innerHTML = `<div class="stat"><b style="color:${last.score >= PASS ? 'var(--green)' : 'var(--red)'}">${last.score}/40</b><span>dernier examen</span></div><div class="stat"><b>${best}/40</b><span>meilleur score</span></div><div class="stat"><b>${avg5.toFixed(1).replace('.', ',')}</b><span>moyenne des 5 derniers</span></div><div class="stat"><b>${Math.round((pass / ex.length) * 100)} %</b><span>examens réussis</span></div>`;
     } else $('#stats').innerHTML = '';
-    $('#themes').innerHTML = Object.keys(THEMES).map((t) => {
-      const qs = Q.filter((q) => q.th === t); let seen = 0, ok = 0;
+    $('#themes').innerHTML = lessonCards();
+  }
+
+  /* ---------- Cours ---------- */
+  const lessonQs = (c) => Q.filter((q) => c.fam.includes(fam(q.id)) || (c.ids && c.ids.includes(q.id)) || (q.th === c.th && fam(q.id) === 'h' && (!c.hq || c.hq.test(q.q))));
+  const LES = new Map();
+  for (const c of COURS) for (const q of lessonQs(c)) if (!LES.has(q.id)) LES.set(q.id, c);
+  let lus = store.get('lus', {});
+  function lessonCards() {
+    return COURS.map((c) => {
+      const qs = lessonQs(c); let seen = 0, ok = 0;
       for (const q of qs) { const s = stats[q.id]; if (s) { seen += s[0]; ok += s[0] - s[1]; } }
-      const pct = seen ? Math.round((ok / seen) * 100) : 0;
-      return `<button class="theme" type="button" data-th="${t}"><strong>${THEMES[t]}</strong><small>${qs.length} questions · ${seen ? `${pct} % de bonnes réponses` : 'pas encore travaillé'}</small><span class="meter" aria-hidden="true"><i style="width:${pct}%"></i></span></button>`;
+      return `<a class="lcard" href="#cours/${c.id}"><span class="k"><span>${THEMES[c.th]}</span>${lus[c.id] ? '<i>✓ Lu</i>' : ''}</span><strong>${esc(c.titre)}</strong><p>${esc(c.resume)}</p><span class="k"><span>${qs.length} questions${seen ? ` · ${Math.round((ok / seen) * 100)} % de réussite` : ''}</span></span></a>`;
     }).join('');
   }
-  $('#themes').addEventListener('click', (e) => { const b = e.target.closest('[data-th]'); if (!b) return; trainTh = b.dataset.th; startTrain(); });
+  function drawCours() {
+    $('#cours').innerHTML = `<h1 style="font-size:clamp(30px,4vw,44px);margin-bottom:8px">Cours</h1><p class="sub">Tout ce qu’il faut savoir, thème par thème. Chaque cours se termine par un quiz expliqué.</p><div class="lcards">${lessonCards()}</div>`;
+  }
+  const signFig = (code) => `<figure><svg viewBox="-66 -66 132 132" aria-hidden="true">${SCENE.sign(code, 0, 0, 1)}</svg><figcaption>${esc(BANQUE.SIGNS[code] || '')}</figcaption></figure>`;
+  const voyFig = (k) => { const v = SCENE.VOY[k]; return `<figure><svg viewBox="-40 -32 80 64" aria-hidden="true"><g color="${SCENE.DCOL[v[0]]}">${v[1]}</g></svg><figcaption>${esc(BANQUE.VOYANTS[k] || '')}</figcaption></figure>`; };
+  function block(b) {
+    if (typeof b === 'string') return `<p>${b}</p>`;
+    if (b.ul) return `<ul class="pts">${b.ul.map((x) => `<li>${x}</li>`).join('')}</ul>`;
+    if (b.tbl) return `<div class="tscroll"><table class="ltable"><thead><tr>${b.tbl[0].map((x) => `<th scope="col">${x || '<span class="sr-only">Cas</span>'}</th>`).join('')}</tr></thead><tbody>${b.tbl.slice(1).map((r) => `<tr>${r.map((x) => `<td>${x}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+    if (b.signs) return `<div class="signs">${b.signs.map(signFig).join('')}</div>`;
+    if (b.voy) return `<div class="signs voys">${b.voy.map(voyFig).join('')}</div>`;
+    if (b.scene) return `<figure class="lfig"><div class="scene">${SCENE.render(b.scene)}</div><figcaption>${b.cap || ''}</figcaption></figure>`;
+    if (b.tip) return `<div class="tip" role="note"><b>${b.t || 'À retenir'}</b><p>${b.tip}</p></div>`;
+    return '';
+  }
+  function drawLesson(id) {
+    const k = COURS.findIndex((c) => c.id === id); if (k < 0) return false;
+    const c = COURS[k], prev = COURS[k - 1], next = COURS[k + 1], n = lessonQs(c).length;
+    $('#lecon').innerHTML = `<p class="crumb"><a href="#cours">Cours</a> · ${THEMES[c.th]}</p><h1>${esc(c.titre)}</h1><p class="lead">${esc(c.resume)}</p>
+      <div class="acts"><button class="btn pri" type="button" data-quiz="${c.id}">Quiz sur ce cours (${n} questions)</button>${synth ? '<button class="btn sec" type="button" id="listen" aria-pressed="false">Écouter le cours</button>' : ''}</div>
+      <ul class="toc" aria-label="Sommaire">${c.s.map((s, i) => `<li><button type="button" data-go="${i}">${esc(s.h)}</button></li>`).join('')}</ul>
+      ${c.s.map((s, i) => `<section id="sec-${i}" aria-labelledby="h-${i}"><h2 id="h-${i}">${s.h}</h2>${s.b.map(block).join('')}</section>`).join('')}
+      <div class="retenir"><h2>À retenir</h2><ul>${c.retenir.map((x) => `<li>${x}</li>`).join('')}</ul></div>
+      <div class="lnav">${prev ? `<a class="btn sec" href="#cours/${prev.id}">← ${esc(prev.titre)}</a>` : '<span></span>'}<button class="btn pri" type="button" data-quiz="${c.id}">Je teste mes connaissances</button>${next ? `<a class="btn sec" href="#cours/${next.id}">${esc(next.titre)} →</a>` : ''}</div>`;
+    lus[c.id] = Date.now(); store.set('lus', lus);
+    $('#lecon').querySelectorAll('[data-go]').forEach((b) => b.addEventListener('click', () => { const s = $('#sec-' + b.dataset.go); s.scrollIntoView({ behavior: 'smooth' }); }));
+    $('#lecon').querySelectorAll('[data-quiz]').forEach((b) => b.addEventListener('click', () => { trainTh = b.dataset.quiz; startTrain(); }));
+    const lb = $('#listen');
+    if (lb) lb.addEventListener('click', () => {
+      if (reading) { hushRead(); return; }
+      const parts = [c.titre + '.', c.resume];
+      $('#lecon').querySelectorAll('section').forEach((s) => { parts.push(s.querySelector('h2').textContent + '.'); s.querySelectorAll(':scope > p, li, td, .tip, figcaption').forEach((x) => { const tx = x.textContent.trim(); if (tx) parts.push(tx); }); });
+      parts.push('À retenir.', ...c.retenir);
+      readSeq(parts, lb);
+    });
+    window.scrollTo(0, 0);
+    return true;
+  }
+  /* lecture d'un cours, paragraphe par paragraphe */
+  let reading = null;
+  function readSeq(parts, btn) {
+    const tok = {}; reading = tok; btn.setAttribute('aria-pressed', 'true'); btn.textContent = 'Arrêter la lecture';
+    const was = pref.voice; let i = 0;
+    const step = () => { if (reading !== tok) return; if (i >= parts.length) { hushRead(); return; } pref.voice = true; speak(parts[i++], step); pref.voice = was; };
+    reading.btn = btn; step();
+  }
+  function hushRead() { if (!reading) return; const b = reading.btn; reading = null; hush(); if (b) { b.setAttribute('aria-pressed', 'false'); b.textContent = 'Écouter le cours'; } }
 
   /* ---------- Entraînement ---------- */
   let trainTh = 'all', trainN = 20, trainT = false;
   function errIds() { return Object.keys(stats).filter((id) => stats[id][1] > 0 && BY.has(id)); }
   function drawSetup() {
     const e = errIds().length;
-    const th = [['all', 'Tous les thèmes'], ...Object.keys(THEMES).map((t) => [t, THEMES[t]]), ['err', `Mes erreurs (${e})`]];
+    const th = [['all', 'Tous les sujets'], ...COURS.map((c) => [c.id, c.titre]), ['err', `Mes erreurs (${e})`]];
     $('#tr-th').innerHTML = th.map(([k, l]) => `<button class="chip" type="button" data-v="${k}" aria-pressed="${trainTh === k}" ${k === 'err' && !e ? 'disabled' : ''}>${esc(l)}</button>`).join('');
     $('#tr-n').innerHTML = [10, 20, 40].map((n) => `<button class="chip" type="button" data-v="${n}" aria-pressed="${trainN === n}">${n}</button>`).join('');
     $('#tr-timer').setAttribute('aria-pressed', String(trainT));
@@ -609,7 +740,8 @@ footer a{color:inherit}
   $('#tr-n').addEventListener('click', (e) => { const b = e.target.closest('[data-v]'); if (!b) return; trainN = +b.dataset.v; drawSetup(); });
   $('#tr-timer').addEventListener('click', () => { trainT = !trainT; drawSetup(); });
   function startTrain(list) {
-    let pool = list || (trainTh === 'err' ? errIds().map((id) => BY.get(id)) : trainTh === 'all' ? Q.slice() : Q.filter((q) => q.th === trainTh));
+    const Lc = COURS.find((c) => c.id === trainTh);
+    let pool = list || (trainTh === 'err' ? errIds().map((id) => BY.get(id)) : Lc ? lessonQs(Lc) : Q.slice());
     if (!list) { pool.sort((a, b) => weightOf(a) - weightOf(b)); pool = shuffle(pool.slice(0, Math.max(trainN, Math.ceil(pool.length / 2)))).slice(0, trainN); }
     if (!pool.length) return;
     startRun(pool, 'train', trainT);

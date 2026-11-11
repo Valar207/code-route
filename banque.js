@@ -352,7 +352,15 @@
     const { o, ok } = place([m], others, i);
     const col = window.SCENE ? window.SCENE.VOY[k][0] : '';
     const sens = { G: 'Vert : une fonction est en marche.', B: 'Bleu : les feux de route sont allumés.', O: 'Orange : une anomalie à faire vérifier rapidement.', R: 'Rouge : un danger, il faut s’arrêter dès que possible.' }[col] || '';
-    add('y:' + k, 'M', { dash: [k] }, 'Ce voyant s’allume au tableau de bord. Il indique :', o, ok, `${m}. ${sens}`);
+    const DET = {
+      croisement: 'Ce sont les feux à utiliser la nuit, dans les tunnels et par mauvaise visibilité.', route: 'Ils éclairent loin : à éteindre dès que tu croises ou suis quelqu’un.',
+      position: 'Ils signalent seulement le véhicule, sans éclairer la route.', brouillardAV: 'Permis par brouillard, chute de neige ou forte pluie.', brouillardAR: 'Seulement par brouillard ou chute de neige, jamais sous la pluie.',
+      huile: 'Arrête-toi et coupe le moteur : sans pression d’huile, il peut casser en quelques minutes.', batterie: 'L’alternateur ne recharge plus : la voiture risque de s’arrêter quand la batterie sera vide.',
+      temperature: 'Le moteur surchauffe : arrête-toi, et n’ouvre pas le bouchon du radiateur à chaud.', frein: 'Vérifie que le frein à main est desserré. Sinon, le liquide de frein manque : les freins peuvent lâcher.',
+      abs: 'Les freins fonctionnent encore, mais les roues peuvent se bloquer en freinage fort.', ceinture: 'Quelqu’un n’a pas bouclé sa ceinture.', carburant: 'Il te reste en général quelques dizaines de kilomètres.',
+      moteur: 'Le moteur ou la dépollution a un défaut : fais vérifier le véhicule rapidement.', pneu: 'Un pneu est sous-gonflé ou crevé : vérifie la pression dès que possible.', airbag: 'L’airbag risque de ne pas se déclencher en cas de choc.',
+    }[k] || '';
+    add('y:' + k, 'M', { dash: [k] }, 'Ce voyant s’allume au tableau de bord. Il indique :', o, ok, `${m}. ${sens} ${DET}`);
     if (red && k !== 'ceinture') {
       const p = place(['m’arrête dès que possible en sécurité', 'fais vérifier le véhicule avant de repartir'], ['continue jusqu’à destination', 'accélère pour arriver plus vite au garage'], i);
       add('y2:' + k, 'M', { dash: [k] }, 'Ce voyant rouge s’allume en roulant. Je :', p.o, p.ok, `${m}. Un voyant rouge signale un danger : on s’arrête dès que possible en sécurité.`);
@@ -377,5 +385,5 @@
     add('f:' + i, 'L', { drv: { ...d, speed: 70, line: 'disc' } }, `Je roule ${lab}. J’utilise :`, ro.map((x) => x[0]), ro.map((x, j) => (x[1] ? j : -1)).filter((j) => j >= 0), ex);
   });
 
-  window.BANQUE = { THEMES, Q: B };
+  window.BANQUE = { THEMES, Q: B, SIGNS: Object.fromEntries(SG.map((s) => [s[0], s[2]])), VOYANTS: Object.fromEntries(VY.map((v) => [v[0], v[1]])) };
 })();
