@@ -25,4 +25,5 @@ Questions et illustrations originales, aucune question officielle reprise. 494 q
 
 ## Publication
 
-Site statique publiable tel quel (Cloudflare Pages ou GitHub Pages), dossier publié : la racine du dépôt, sans commande de build.
+- En ligne : https://val-code-route.pages.dev (Cloudflare Pages, projet `val-code-route`, branche `main`, dossier publié : racine, sans commande de build). Chaque push sur `main` redéploie le site.
+- Code source : https://github.com/Valar207/code-route
